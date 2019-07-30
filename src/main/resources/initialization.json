@@ -112,7 +112,7 @@
 {"class": "org.slf4j.helpers.NOPLoggerFactory"},
 {"class": "org.slf4j.helpers.SubstituteLoggerFactory"},
 {"class": "org.slf4j.LoggerFactory"},
-{"class": "org.slf4j.impl.StaticLoggerBinder"},
+
 {"class": "ch.qos.logback.classic.util.ContextSelectorStaticBinder"},
 {"class": "ch.qos.logback.classic.LoggerContext"},
 {"class": "ch.qos.logback.classic.selector.DefaultContextSelector"},

@@ -31,6 +31,10 @@ import org.graalvm.nativeimage.hosted.RuntimeClassInitialization;
  */
 public class InitializationHandler {
 
+	public static final String OPEN_BUILD_TIME_INIT_SWITCH = "OpenBuildTimeInitSwitch";
+	// default false
+	private static boolean openBuildTimeInit = Boolean.getBoolean(OPEN_BUILD_TIME_INIT_SWITCH);
+
 	public InitializationDescriptor compute() {
 		try {
 			InputStream s = this.getClass().getResourceAsStream("/initialization.json");
@@ -44,14 +48,19 @@ public class InitializationHandler {
 		InitializationDescriptor id = compute();
 		System.out.println("SBG: forcing explicit class initialization at build or runtime:");
 		System.out.println(id.toString());
-		List<Class> collect = id.getBuildtimeClasses().stream()
-				.map(access::findClassByName).filter(Objects::nonNull).collect(Collectors.toList());
-		RuntimeClassInitialization.initializeAtBuildTime(collect.toArray(new Class[] {}));
+		if (openBuildTimeInit) {
+			List<Class> collect = id.getBuildtimeClasses().stream()
+					.map(access::findClassByName).filter(Objects::nonNull).collect(Collectors.toList());
+
+			RuntimeClassInitialization.initializeAtBuildTime(collect.toArray(new Class[] {}));
+		}
 		id.getRuntimeClasses().stream()
 				.map(access::findClassByName).filter(Objects::nonNull)
 				.forEach(RuntimeClassInitialization::initializeAtRunTime);
-		System.out.println("Registering these packages for buildtime initialization: \n"+id.getBuildtimePackages());
-		RuntimeClassInitialization.initializeAtBuildTime(id.getBuildtimePackages().toArray(new String[] {}));
+		if (openBuildTimeInit) {
+			System.out.println("Registering these packages for buildtime initialization: \n"+id.getBuildtimePackages());
+			RuntimeClassInitialization.initializeAtBuildTime(id.getBuildtimePackages().toArray(new String[] {}));
+		}
 		System.out.println("Registering these packages for runtime initialization: \n"+id.getRuntimePackages());
 		RuntimeClassInitialization.initializeAtRunTime(id.getRuntimePackages().toArray(new String[] {}));
 	}

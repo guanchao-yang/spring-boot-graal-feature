@@ -7,8 +7,7 @@ public class NettyIsAround implements BooleanSupplier {
 	@Override
 	public boolean getAsBoolean() {
 		try {
-			Class.forName("io.netty.util.internal.CleanerJava6");
-			return true;
+			return Class.forName("io.netty.util.internal.CleanerJava6", false, getClass().getClassLoader()) != null;
 		} catch (ClassNotFoundException e) {
 			return false;
 		}

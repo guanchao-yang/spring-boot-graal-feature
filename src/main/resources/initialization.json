@@ -14,7 +14,7 @@
 "buildTimeInitialization":
 [
 //{"class": "com.sun.jmx.mbeanserver.MXBeanLookup"},
-{"class": "org.h2.Driver"},
+//{"class": "org.h2.Driver"},
 {"package": "io.netty.handler.address"},
 {"package": "io.netty.handler.flow"},
 {"package": "io.netty.handler.flush"},
@@ -93,7 +93,7 @@
 {"package": "io.netty.buffer"},
 {"package": "io.netty.channel"},
 {"package": "org.apache.logging.log4j"},
-{"class": "org.jboss.logging.LoggerProviders"},
+
 {"class": "org.jboss.logging.Log4j2LoggerProvider"},
 {"class": "org.hibernate.validator.internal.util.logging.Log_$logger"},
 {"class": "org.jboss.logging.Log4j2Logger"},
@@ -112,7 +112,7 @@
 {"class": "org.slf4j.helpers.NOPLoggerFactory"},
 {"class": "org.slf4j.helpers.SubstituteLoggerFactory"},
 {"class": "org.slf4j.LoggerFactory"},
-
+{"class": "org.slf4j.impl.StaticLoggerBinder"},
 {"class": "ch.qos.logback.classic.util.ContextSelectorStaticBinder"},
 {"class": "ch.qos.logback.classic.LoggerContext"},
 {"class": "ch.qos.logback.classic.selector.DefaultContextSelector"},

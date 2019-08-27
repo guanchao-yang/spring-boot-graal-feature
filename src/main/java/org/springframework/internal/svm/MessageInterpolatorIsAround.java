@@ -7,8 +7,7 @@ public class MessageInterpolatorIsAround implements BooleanSupplier {
 	@Override
 	public boolean getAsBoolean() {
 		try {
-			Class.forName("javax.validation.MessageInterpolator");
-			return true;
+			return Class.forName("javax.validation.MessageInterpolator", false, getClass().getClassLoader()) != null;
 		} catch (ClassNotFoundException e) {
 			return false;
 		}

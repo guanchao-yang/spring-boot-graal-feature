@@ -385,7 +385,10 @@ public class ResourcesHandler {
 		if (configsString != null) {
 			List<String> configs = new ArrayList<>();
 			for (String s: configsString.split(",")) {
-				configs.add(s);
+				s = s.trim();
+				if(s.length()>0) {
+					configs.add(s);
+				}
 			}
 			// TODO what about ConditionalOnResource?
 			System.out.println(

@@ -18,19 +18,16 @@ package org.springframework.internal.svm;
 import com.oracle.svm.core.annotate.Substitute;
 import com.oracle.svm.core.annotate.TargetClass;
 
-import org.springframework.jmx.support.MBeanServerFactoryBean;
-
 /**
- * 
  * @author Andy Clement
  */
-@TargetClass(value=MBeanServerFactoryBean.class)
+@TargetClass(className = "org.springframework.jmx.support.MBeanServerFactoryBean", onlyWith = OnlyPresent.class)
 public final class Target_MBeanServerFactoryBean {
 
-	@Substitute
-	public void destroy() {
+    @Substitute
+    public void destroy() {
     }
-    
+
     @Substitute
     public void afterPropertiesSet() {
 

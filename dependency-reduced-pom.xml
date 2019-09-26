@@ -27,6 +27,17 @@
         </executions>
       </plugin>
       <plugin>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
         <artifactId>maven-shade-plugin</artifactId>
         <version>3.2.1</version>
         <executions>
@@ -120,13 +131,13 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot</artifactId>
-      <version>2.2.0.M2</version>
+      <version>2.2.0.M6</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-orm</artifactId>
-      <version>5.2.0.M1</version>
+      <version>5.2.0.RC2</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
@@ -144,7 +155,7 @@
     <dependency>
       <groupId>com.oracle.substratevm</groupId>
       <artifactId>graal-hotspot-library</artifactId>
-      <version>19.1.0</version>
+      <version>19.2.0</version>
       <scope>provided</scope>
       <exclusions>
         <exclusion>

@@ -15,27 +15,26 @@
  */
 package org.springframework.internal.svm;
 
-import javax.validation.MessageInterpolator;
-
+import com.oracle.svm.core.annotate.Substitute;
+import com.oracle.svm.core.annotate.TargetClass;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.util.ClassUtils;
 
-import com.oracle.svm.core.annotate.Substitute;
-import com.oracle.svm.core.annotate.TargetClass;
+import javax.validation.MessageInterpolator;
 
 /**
  * Substitution for MessageInterpolatorFactory. The code pattern in there misbehaves under graal so let's just fallback straight away... needs review
- * 
+ *
  * @author Andy Clement
  */
-@TargetClass(value=org.springframework.boot.validation.MessageInterpolatorFactory.class,onlyWith=MessageInterpolatorIsAround.class)
+@TargetClass(className = "org.springframework.boot.validation.MessageInterpolatorFactory", onlyWith = OnlyPresent.class)
 public final class Target_org_springframework_boot_validation_MessageInterpolatorFactory {
 
-	@Substitute
-	public MessageInterpolator getObject() throws BeansException {
-		Class<?> interpolatorClass = ClassUtils.resolveClassName("org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator", null);
-		Object interpolator = BeanUtils.instantiateClass(interpolatorClass);
-		return (MessageInterpolator) interpolator;
-	}
+    @Substitute
+    public MessageInterpolator getObject() throws BeansException {
+        Class<?> interpolatorClass = ClassUtils.resolveClassName("org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator", null);
+        Object interpolator = BeanUtils.instantiateClass(interpolatorClass);
+        return (MessageInterpolator) interpolator;
+    }
 }

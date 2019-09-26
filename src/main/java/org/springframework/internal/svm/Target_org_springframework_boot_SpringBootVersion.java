@@ -15,34 +15,32 @@
  */
 package org.springframework.internal.svm;
 
-import org.springframework.beans.BeansException;
-
 import com.oracle.svm.core.annotate.Substitute;
 import com.oracle.svm.core.annotate.TargetClass;
+import org.springframework.beans.BeansException;
 
 /**
- * 
  * @author Andy Clement
  */
-@TargetClass(value=org.springframework.boot.SpringBootVersion.class)
+@TargetClass(className = "org.springframework.boot.SpringBootVersion", onlyWith = OnlyPresent.class)
 public final class Target_org_springframework_boot_SpringBootVersion {
 
-	@Substitute
-	public static String getVersion() throws BeansException {
-		return null;
-		// Without this, line 66 in SpringBootVersion 2.2.0 snapshots (>m2) fails with NPE:
-		
-		// URL codeSourceLocation = SpringBootVersion.class.getProtectionDomain()
-		// .getCodeSource().getLocation(); // this is line 66
+    @Substitute
+    public static String getVersion() throws BeansException {
+        return null;
+        // Without this, line 66 in SpringBootVersion 2.2.0 snapshots (>m2) fails with NPE:
 
-		//java.lang.NullPointerException
-		//	at org.springframework.boot.SpringBootVersion.determineSpringBootVersion(SpringBootVersion.java:66)
-		//	at org.springframework.boot.SpringBootVersion.getVersion(SpringBootVersion.java:56)
-		//	at org.springframework.boot.SpringBootBanner.printBanner(SpringBootBanner.java:51)
-		//	at org.springframework.boot.SpringApplicationBannerPrinter.print(SpringApplicationBannerPrinter.java:71)
-		//	at org.springframework.boot.SpringApplication.printBanner(SpringApplication.java:582)
-		//	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
-		//	at com.example.func.BuncApplication.run(BuncApplication.java:55)
-		//	at com.example.func.BuncApplication.main(BuncApplication.java:34)
-	}
+        // URL codeSourceLocation = SpringBootVersion.class.getProtectionDomain()
+        // .getCodeSource().getLocation(); // this is line 66
+
+        //java.lang.NullPointerException
+        //	at org.springframework.boot.SpringBootVersion.determineSpringBootVersion(SpringBootVersion.java:66)
+        //	at org.springframework.boot.SpringBootVersion.getVersion(SpringBootVersion.java:56)
+        //	at org.springframework.boot.SpringBootBanner.printBanner(SpringBootBanner.java:51)
+        //	at org.springframework.boot.SpringApplicationBannerPrinter.print(SpringApplicationBannerPrinter.java:71)
+        //	at org.springframework.boot.SpringApplication.printBanner(SpringApplication.java:582)
+        //	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
+        //	at com.example.func.BuncApplication.run(BuncApplication.java:55)
+        //	at com.example.func.BuncApplication.main(BuncApplication.java:34)
+    }
 }

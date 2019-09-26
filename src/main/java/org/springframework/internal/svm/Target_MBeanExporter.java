@@ -18,17 +18,13 @@ package org.springframework.internal.svm;
 import com.oracle.svm.core.annotate.Substitute;
 import com.oracle.svm.core.annotate.TargetClass;
 
-import org.springframework.jmx.export.MBeanExporter;
-import org.springframework.jmx.support.MBeanServerFactoryBean;
-
 /**
- * 
  * @author Andy Clement
  */
-@TargetClass(value=MBeanExporter.class)
+@TargetClass(className = "org.springframework.jmx.export.MBeanExporter", onlyWith = OnlyPresent.class)
 public final class Target_MBeanExporter {
 
-	@Substitute
-	public void afterPropertiesSet() {
-	}
+    @Substitute
+    public void afterPropertiesSet() {
+    }
 }

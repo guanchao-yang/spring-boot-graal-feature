@@ -56,9 +56,9 @@
 {"package": "io.netty.handler.codec.serialization"},
 {"package": "io.netty.handler.codec.string"},
 {"package": "io.netty.handler.codec.xml"},
-{"package": "io.netty.util"},
+
 {"package": "io.netty.util.collection"},
-{"package": "io.netty.util.concurrent"},
+
 {"package": "io.netty.util.internal"},
 {"package": "io.netty.util.internal.logging"},
 {"package": "io.netty.util.internal.shaded.org.jctools.queues"},

@@ -59,7 +59,7 @@
 
 {"package": "io.netty.util.collection"},
 
-
+{"package": "io.netty.util.internal"},
 {"package": "io.netty.util.internal.logging"},
 {"package": "io.netty.util.internal.shaded.org.jctools.queues"},
 {"package": "io.netty.util.internal.shaded.org.jctools.queues.atomic"},
@@ -89,7 +89,7 @@
 {"class": "reactor.netty.resources.ConnectionProvider"},
 {"package": "reactor.util"},
 {"class": "reactor.util.Loggers$Slf4JLogger"},
-
+{"package": "io.netty.util"},
 {"package": "io.netty.buffer"},
 {"package": "io.netty.channel"},
 {"package": "org.apache.logging.log4j"},
@@ -153,7 +153,7 @@
 {"class": "ch.qos.logback.classic.layout.TTLLLayout"},
 {"class": "ch.qos.logback.core.util.CachingDateFormatter"},
 {"class": "io.netty.util.internal.MathUtil"},
-
+{"class": "io.netty.util.internal.PlatformDependent0"},
 {"class": "ch.qos.logback.classic.pattern.ThrowableProxyConverter"},
 {"class": "org.slf4j.helpers.FormattingTuple"},
 {"class": "io.netty.buffer.UnpooledByteBufAllocator"},
@@ -237,7 +237,7 @@
 {"package": "org.hibernate.validator.internal.util.logging.LoggerFactory"},
 {"class": "io.netty.buffer.Unpooled"},
 {"class": "io.netty.buffer.UnpooledByteBufAllocator"},
-
+{"class": "io.netty.util.internal.PlatformDependent"},
 {"package": "ch.qos.logback.core"},
 {"package": "ch.qos.logback.classic"},
 {"package": "ch.qos.logback.classic.util"},

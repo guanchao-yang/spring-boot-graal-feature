@@ -153,7 +153,7 @@
 {"class": "ch.qos.logback.classic.layout.TTLLLayout"},
 {"class": "ch.qos.logback.core.util.CachingDateFormatter"},
 {"class": "io.netty.util.internal.MathUtil"},
-{"class": "io.netty.util.internal.PlatformDependent0"},
+//{"class": "io.netty.util.internal.PlatformDependent0"},
 {"class": "ch.qos.logback.classic.pattern.ThrowableProxyConverter"},
 {"class": "org.slf4j.helpers.FormattingTuple"},
 {"class": "io.netty.buffer.UnpooledByteBufAllocator"},
